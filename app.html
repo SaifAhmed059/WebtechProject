@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Layout with Flexbox</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 400px;
+            /* Adjusted container width */
+            border: 3px solid black;
+            background-color: white;
+            position: relative;
+            padding: 80px 20px 20px;
+            /* Increased top padding for logo */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+        }
+
+        .logo {
+            width: 80px;
+            /* Logo size */
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid black;
+            position: absolute;
+            top: -30px;
+            /* Adjusted position to stay within view */
+            background-color: #4CAF50;
+            /* Placeholder color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .title {
+            width: 150px;
+            /* Title width */
+            text-align: center;
+            background-color: white;
+            padding: 10px;
+            border: 2px solid black;
+            font-weight: bold;
+            margin-bottom: 20px;
+            /* Increased margin */
+            font-size: 18px;
+            /* Larger font size */
+            border-radius: 5px;
+            /* Rounded corners */
+        }
+
+        .box-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 20px;
+            /* Added gap between rows */
+        }
+
+        .row {
+            display: flex;
+            width: 100%;
+            gap: 20px;
+            /* Added gap between boxes */
+        }
+
+        .box {
+            border: 2px solid black;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 8px;
+            /* Rounded corners */
+            background-color: #f9f9f9;
+            /* Light background */
+        }
+
+        .row:first-child .box {
+            height: auto;
+            /* Adjusted height for Box 1 and Box 3 */
+        }
+
+        .row:last-child .box {
+            height: 100px;
+            /* Adjusted height for Box 2 and Box 4 */
+        }
+
+        /* Form Styles */
+        .form-container {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .form-container input,
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-container .terms {
+            margin: 15px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-container .terms input {
+            margin-right: 8px;
+        }
+
+        .form-container .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="logo">Logo</div>
+        <div class="title">TITLE</div>
+        <div class="box-container">
+            <div class="row">
+                <div class="box">Box 1</div>
+                <div class="box">
+                    <div class="form-container">
+                        <form>
+                            <input type="email" placeholder="Email" required>
+                            <input type="password" placeholder="Password" required>
+                            <input type="password" placeholder="Confirm Password" required>
+                            <input type="text" placeholder="Location" required>
+                            <input type="text" placeholder="Zip Code" required>
+                            <select required>
+                                <option value="">Select Preferred City</option>
+                                <option value="city1">City 1</option>
+                                <option value="city2">City 2</option>
+                                <option value="city3">City 3</option>
+                            </select>
+                            <div class="terms">
+                                <input type="checkbox" id="terms" required>
+                                <label for="terms">I agree to the Terms & Conditions</label>
+                            </div>
+                            <button type="submit" class="submit-button">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="box">Box 2</div>
+                <div class="box">Box 4</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
