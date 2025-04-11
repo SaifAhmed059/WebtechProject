@@ -17,33 +17,28 @@
         }
 
         .container {
-            width: 400px;
-            /* Adjusted container width */
+            width: 500px;
+            height: 600px;
             border: 3px solid black;
             background-color: white;
             position: relative;
             padding: 80px 20px 20px;
-            /* Increased top padding for logo */
             display: flex;
             flex-direction: column;
             align-items: center;
             border-radius: 10px;
-            /* Rounded corners */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            /* Subtle shadow */
+            overflow: auto;
         }
 
         .logo {
-            width: 80px;
-            /* Logo size */
-            height: 80px;
+            width: 60px;
+            height: 70px;
             border-radius: 50%;
             border: 3px solid black;
             position: absolute;
-            top: -30px;
-            /* Adjusted position to stay within view */
+            top: -1px;
             background-color: #4CAF50;
-            /* Placeholder color */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -54,18 +49,14 @@
 
         .title {
             width: 150px;
-            /* Title width */
             text-align: center;
             background-color: white;
             padding: 10px;
             border: 2px solid black;
             font-weight: bold;
             margin-bottom: 20px;
-            /* Increased margin */
             font-size: 18px;
-            /* Larger font size */
             border-radius: 5px;
-            /* Rounded corners */
         }
 
         .box-container {
@@ -73,14 +64,12 @@
             flex-direction: column;
             width: 100%;
             gap: 20px;
-            /* Added gap between rows */
         }
 
         .row {
             display: flex;
             width: 100%;
             gap: 20px;
-            /* Added gap between boxes */
         }
 
         .box {
@@ -93,22 +82,17 @@
             font-weight: bold;
             padding: 20px;
             border-radius: 8px;
-            /* Rounded corners */
             background-color: #f9f9f9;
-            /* Light background */
         }
 
         .row:first-child .box {
             height: auto;
-            /* Adjusted height for Box 1 and Box 3 */
         }
 
         .row:last-child .box {
             height: 100px;
-            /* Adjusted height for Box 2 and Box 4 */
         }
 
-        /* Form Styles */
         .form-container {
             width: 100%;
             padding: 10px;
@@ -163,22 +147,39 @@
                 <div class="box">Box 1</div>
                 <div class="box">
                     <div class="form-container">
-                        <form>
-                            <input type="email" placeholder="Email" required>
-                            <input type="password" placeholder="Password" required>
-                            <input type="password" placeholder="Confirm Password" required>
+                        <form onsubmit="return validateForm()">
+                            <input type="text" id="name" placeholder="Full Name" required pattern="^[A-Za-z\s.]+$"
+                                title="Only letters, dots, and spaces allowed">
+
+                            <input type="email" id="email" placeholder="Email" required
+                                pattern="^\d{2}-\d{5}-\d@student\.aiub\.edu$"
+                                title="Email must be like 22-46790-1@student.aiub.edu">
+
+                            <input type="password" id="password" placeholder="Password" required>
+                            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
                             <input type="text" placeholder="Location" required>
-                            <input type="text" placeholder="Zip Code" required>
+
+                            <input type="text" id="zip" placeholder="Zip Code" required pattern="^\d{4}$"
+                                title="Zip Code must be exactly 4 digits">
+
                             <select required>
                                 <option value="">Select Preferred City</option>
-                                <option value="city1">City 1</option>
-                                <option value="city2">City 2</option>
-                                <option value="city3">City 3</option>
+                                <option value="Dhaka">Dhaka</option>
+                                <option value="Khulna">Khulna</option>
+                                <option value="Barisal">Barisal</option>
+                                <option value="Rangpur">Rangpur</option>
+                                <option value="Rajshahi">Rajshahi</option>
+                                <option value="Chittagong">Chittagong</option>
+                                <option value="Mymensingh">Mymensingh</option>
+                                <option value="Sylhet">Sylhet</option>
                             </select>
+
                             <div class="terms">
                                 <input type="checkbox" id="terms" required>
                                 <label for="terms">I agree to the Terms & Conditions</label>
                             </div>
+
                             <button type="submit" class="submit-button">Submit</button>
                         </form>
                     </div>
@@ -190,6 +191,42 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const zip = document.getElementById('zip').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            const namePattern = /^[A-Za-z\s.]+$/;
+            const emailPattern = /^\d{2}-\d{5}-\d@student\.aiub\.edu$/;
+            const zipPattern = /^\d{4}$/;
+
+            if (!namePattern.test(name)) {
+                alert("Name should contain only letters, dots, and spaces.");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Email must be like 22-46790-1@student.aiub.edu");
+                return false;
+            }
+
+            if (!zipPattern.test(zip)) {
+                alert("Zip Code must be exactly 4 digits.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 
 </body>
 
