@@ -1,0 +1,155 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #aaf4f1;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 500px;
+    height: 600px;
+    border: 3px solid black;
+    background-color: rgb(106, 182, 229);
+    position: relative;
+    padding: 80px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.logo {
+    width: 60px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid black;
+    position: absolute;
+    top: -1px;
+    background-color: #b059f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.title {
+    width: 150px;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid black;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+.box {
+    border: 2px solid black;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #a1acf0;
+    overflow: auto;
+}
+
+.row:first-child .box {
+    height: auto;
+}
+
+.row:last-child .box {
+    height: 100px;
+}
+
+.form-container {
+    width: 100%;
+    padding: 10px;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-container .terms {
+    margin: 15px 0;  
+    font-size: 14px; 
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    /*white-space: nowrap;*/
+}
+
+.form-container .terms input {
+    /*margin-right: 8px; */
+    margin: 0;
+}
+
+.form-container .submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.form-container .submit-button:hover {
+    background-color: #45a049;
+}
+
+/* Table Styling */
+.city-aqi-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.city-aqi-table th,
+.city-aqi-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.city-aqi-table th {
+    background-color: #4CAF50;
+    color: white;
+}
